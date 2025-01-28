@@ -7,7 +7,8 @@ export class loginPage{
         loginWithEmail: '#loginpasswordbtn',
         enterEmail: '#emailpass',
         enterPassword: '#userpass',
-        submitBtn: '#loginfrombtnpass'
+        submitBtn: '#loginfrombtnpass',
+        afterLoginAccountBtn : "a[title='my account'] span"
     }   
     openURL() {
         cy.visit(Cypress.env('URL'))
@@ -32,5 +33,8 @@ export class loginPage{
     }
     clickOnSubmit(){
         cy.get(this.weblocators.submitBtn).click()
+    }
+    clickOnAfterLoginBtn(){
+        cy.get(this.weblocators.afterLoginAccountBtn).click()
     }
 }
