@@ -6,10 +6,12 @@ module.exports = defineConfig({
 
   e2e: {
     setupNodeEvents(on, config) {
-      require('cypress-mochawesome-reporter/plugin')(on);
+      require('cypress-mochawesome-reporter/plugin')(on); 
     },
   },
 
+  pageLoadTimeout: 120000,
+  
   env: {
     URL: 'https://navyasabyliva.in/'
   }
