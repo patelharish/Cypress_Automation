@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "cypress:test": "npx cypress run", 
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test1": "npx cypress run --no-color"
   },
   "author": "harish patel",
   "license": "ISC",
