@@ -1,17 +1,41 @@
-name: Regression End to End Tests
+name: Cypress Test Suite
 
-on: push
+on:
+  push:
+    branches:
+      - main  # Change this to the branch you want to trigger on
+  pull_request:
+    branches:
+      - main  # Change this to the branch you want to trigger on pull requests
 
 jobs:
   cypress-run:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest  # Use the latest Ubuntu image
+    
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      # Install npm dependencies, cache them correctly
-      # and run all Cypress tests
-      - name: Cypress run
-        uses: cypress-io/github-action@v6
-        with:
-          build: npm run build
-          start: npm start
+    # Step 1: Checkout the code
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    
+    # Step 2: Set up Node.js (the version you need for Cypress)
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'  # You can change this to the version you're using
+    
+    # Step 3: Install dependencies
+    - name: Install dependencies
+      run: |
+        npm install
+
+    # Step 4: Run Cypress tests (headless mode)
+    - name: Run Cypress tests
+      run: |
+        npx cypress run --headless --record --key ${{ secrets.CYPRESS_RECORD_KEY }}  # Add the record key to GitHub secrets
+
+    # Step 5: (Optional) Upload Cypress artifacts (videos, screenshots)
+    - name: Upload Cypress artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: cypress-artifacts
+        path: cypress/results/  # Adjust the path if necessary (this is where Cypress puts screenshots/videos)
