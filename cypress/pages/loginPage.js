@@ -34,7 +34,4 @@ export class loginPage{
     clickOnSubmit(){
         cy.get(this.weblocators.submitBtn).click()
     }
-    clickOnAfterLoginBtn(){
-        cy.get(this.weblocators.afterLoginAccountBtn).click()
-    }
 }

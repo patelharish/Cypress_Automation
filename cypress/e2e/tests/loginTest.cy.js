@@ -13,6 +13,5 @@ describe(' test automation', () => {
         loginObj.enterEmail(loginData.email)
         loginObj.enterPassword(loginData.password)
         loginObj.clickOnSubmit() 
-        loginObj.clickOnAfterLoginBtn()
    })
 })        

@@ -1,4 +1,14 @@
 {
     "email" : "harishpatel01.gh@gmail.com",
-    "password" : "Harish@321"
+    "password" : "Harish@321",
+    
+    "product" :
+    {
+        "productName" : "A Sunny Blossom Saree"       
+    },
+
+    "message":
+    {
+         "successMessage" : "Your order on My Store is complete."
+    }
 }

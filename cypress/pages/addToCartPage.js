@@ -5,7 +5,8 @@ export class addToCartPage{
         viewBtn : "(//a[text()='view all'])[1]",
         firstProduct: "(//li[@class='item product product-item'])[1]" ,   
         addToCartBtn: '#product-addtocart-button',
-        cartIcon: "a[title='My Cart']"          
+        cartIcon: "a[title='My Cart']",
+        productName: '.base'          
     }
     
     openURL() {
@@ -22,5 +23,8 @@ export class addToCartPage{
     }
     clickOnCartIcon(){
         cy.get(this.weblocators.cartIcon).click()
+    }
+    verifyProductName(productName){
+       return cy.get(this.weblocators.productName)
     }
 }
