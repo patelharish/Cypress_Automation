@@ -31,7 +31,7 @@ jobs:
     # Step 4: Run Cypress tests (headless mode)
     - name: Run Cypress tests
       run: |
-        npx cypress run --headless --record --key ${{ secrets.CYPRESS_RECORD_KEY }}  # Add the record key to GitHub secrets
+        npx cypress run 
 
     # Step 5: (Optional) Upload Cypress artifacts (videos, screenshots)
     - name: Upload Cypress artifacts
