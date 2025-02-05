@@ -6,12 +6,16 @@ export class addToCartPage{
         firstProduct: "(//li[@class='item product product-item'])[1]" ,   
         addToCartBtn: '#product-addtocart-button',
         cartIcon: "a[title='My Cart']",
-        productName: '.base'          
+        productName: '.base' ,
+        banner: '//i[@class="wewidgeticon we_close icon-large"]'       
     }
     
     openURL() {
         cy.visit(Cypress.env('URL'))
     } 
+    clickOnBanner(){
+        cy.xpath(this.weblocators.banner).click()
+    }
     clickOnViewAllBtn(){
         cy.xpath(this.weblocators.viewBtn).click()
     }
