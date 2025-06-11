@@ -1,10 +1,10 @@
 export class loginPage{
 
     weblocators = {
-        allowNtfc : '#deny',
-        accountBtn : "a[title='my account'] span",
-        loginBtn: "a:contains('Log in / Register')",
-        loginWithEmail: '#loginpasswordbtn',
+        //allowNtfc : '#deny',
+        accountBtn : ".lbtnlogin.lbtn",
+       // loginBtn: "a:contains('Log in / Register')",
+        loginWithEmail: '#loginpasswordbtn',//loginpasswordbtn
         enterEmail: '#emailpass',
         enterPassword: '#userpass',
         submitBtn: '#loginfrombtnpass',
@@ -13,14 +13,8 @@ export class loginPage{
     openURL() {
         cy.visit(Cypress.env('URL'))
     } 
-    clickOnAllowNtfcn(){
-        cy.get(this.weblocators.allowNtfc).click()
-    }
     clickOnAccountBtn(){
-        cy.get(this.weblocators.accountBtn).click()
-    }
-    clickOnLogin(){
-        cy.get(this.weblocators.loginBtn).click()
+        cy.get(this.weblocators.accountBtn).click({force: true})
     }
     clickOnLoginWithEmail(){
         cy.get(this.weblocators.loginWithEmail).click()

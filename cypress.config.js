@@ -13,6 +13,6 @@ module.exports = defineConfig({
   pageLoadTimeout: 120000,
   
   env: {
-    URL: 'https://navyasabyliva.in/'
+    URL: 'https://globusfashion.com/'
   }
 });

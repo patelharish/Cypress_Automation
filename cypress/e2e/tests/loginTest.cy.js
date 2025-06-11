@@ -8,7 +8,7 @@ describe(' test automation', () => {
         loginObj.openURL()  
         //loginObj.clickOnAllowNtfcn()  
         loginObj.clickOnAccountBtn()
-        loginObj.clickOnLogin()
+       // loginObj.clickOnLogin()
         loginObj.clickOnLoginWithEmail()
         loginObj.enterEmail(loginData.email)
         loginObj.enterPassword(loginData.password)
