@@ -26,6 +26,6 @@ jobs:
       - name: Run Cypress tests
         uses: cypress-io/github-action@v6
         with:
-          command: npx cypress run --browser chrome --headless
+          command: npx cypress run --browser chrome
           # Remove all unnecessary CI-specific configurations
           # No 'build', 'start', or 'wait-on' unless specifically needed
