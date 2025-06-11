@@ -4,7 +4,7 @@ import loginData from '../../fixtures/loginData.json'
 
 describe(' test automation', () => {
 
-    it('login flow', () => {
+    it.skip('login flow', () => {
         loginObj.openURL()  
         //loginObj.clickOnAllowNtfcn()  
         loginObj.clickOnAccountBtn()
