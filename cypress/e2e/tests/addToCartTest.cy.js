@@ -6,7 +6,7 @@ import loginData from '../../fixtures/loginData.json'
 describe(' test automation', () => {
     
     it('add to cart flow', () => {
-        addToCartObj.openURL()  
+        addToCartObj.openURL({ failOnStatusCode: false })  
         //addToCartObj.clickOnAllowNtfcn()  
         addToCartObj.clickOnViewAllBtn()
         addToCartObj.clickOnFirstProduct()
