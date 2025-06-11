@@ -1,4 +1,5 @@
 const nodemailer = require('nodemailer');
+require('dotenv').config(); // Load from .env
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
@@ -12,7 +13,7 @@ const mailOptions = {
   from: process.env.EMAIL_USER,
   to: process.env.EMAIL_RECEIVER,
   subject: 'Daily Cypress Test Report',
-  text: 'Please find the Cypress test report attached.',
+  text: 'Attached is the latest Cypress HTML report.',
   attachments: [
     {
       filename: 'report.html',
@@ -21,10 +22,7 @@ const mailOptions = {
   ]
 };
 
-transporter.sendMail(mailOptions, function (error, info) {
-  if (error) {
-    console.log('Email failed: ', error);
-  } else {
-    console.log('Email sent: ' + info.response);
-  }
+transporter.sendMail(mailOptions, function (err, info) {
+  if (err) return console.log('Failed to send email:', err);
+  console.log('✅ Email sent:', info.response);
 });
