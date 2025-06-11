@@ -1,0 +1,39 @@
+name: Run Cypress Tests
+
+on:
+  push:
+    branches:
+      - main   # or your branch name
+  pull_request:
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20  # or your project's version
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Cypress Tests
+        uses: cypress-io/github-action@v6
+        with:
+          start: npm start # optional, if your app needs to be served
+         
+          wait-on-timeout: 60 # seconds
+
+      - name: Upload Test Videos and Screenshots (if test fails)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-artifacts
+          path: |
+            cypress/videos
+            cypress/screenshots
