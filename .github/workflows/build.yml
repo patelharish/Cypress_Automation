@@ -2,7 +2,7 @@ name: Daily Cypress Tests
 
 on:
   schedule:
-    - cron: '0 4 * * *' # Runs every day at 9:30 AM IST (4:00 UTC)
+    - cron: '40 9 * * *' # Runs every day at 9:30 AM IST (4:00 UTC)
   workflow_dispatch:    # Allows manual run from GitHub UI
 
 jobs:
