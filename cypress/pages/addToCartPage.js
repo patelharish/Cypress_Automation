@@ -11,8 +11,8 @@ export class addToCartPage{
        // banner: '//i[@class="wewidgeticon we_close icon-large"]'       
     }
     
-    openURL() {
-        cy.visit(Cypress.env('URL'))
+    openURL(options = {}) {
+        cy.visit(Cypress.env('URL'), options)
     } 
     clickOnViewAllBtn(){
         cy.contains(this.weblocators.viewBtn).click()
