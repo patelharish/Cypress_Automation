@@ -1,14 +1,31 @@
-name: Cypress Tests
+name: Daily Cypress Tests
 
-on: push
+on:
+  schedule:
+    - cron: '0 4 * * *' # Runs every day at 9:30 AM IST (4:00 UTC)
+  workflow_dispatch:    # Allows manual run from GitHub UI
 
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      # Install npm dependencies, cache them correctly
-      # and run all Cypress tests
-      - name: Cypress run
-        uses: cypress-io/github-action@v6
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Cypress tests
+        run: npx cypress run
+
+      - name: Upload Cypress Test Results
+        uses: actions/upload-artifact@v3
+        with:
+          name: cypress-report
+          path: cypress/videos/
